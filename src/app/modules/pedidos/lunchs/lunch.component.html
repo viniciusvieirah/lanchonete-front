@@ -1,0 +1,45 @@
+<div class="background">
+  <div>
+      <div class="centered">
+          <div class="col s12 m7">
+            <div class="card">
+              <div class="card-image">
+                <img class="responsive-img" src="http://ttburger.com.br/wp-content/uploads/2015/05/bannerxodo-1918x798.jpg">
+                <span class="card-title">Lanchonete <br> Cubo Lanches </span>
+              </div>
+              <div class="card-content">
+                  <table class="striped centered" >
+                      <thead>
+                        <tr>
+                            <th>Lanches</th>
+                            <th>Quantidade</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr *ngFor="let lanche of lanches ; let i = index">
+                          <td>{{lanche.name}}</td>
+                          <td class="row">
+                            <div>
+                              <td class="input_qtd"><input type="number" min="0" class="center-input" value="{{lanche.quantidade}}" (input)="valuechange($event, i)"></td>
+                            </div>
+                          </td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+
+              </div>
+              <div class="card-action">
+                  <button class="btn" type="submit" name="action" (click)= "teste(lanches)">
+                      <i class="material-icons right">Proximo</i>
+                    </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+  </div>
+<div>

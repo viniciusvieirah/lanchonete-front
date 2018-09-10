@@ -1,0 +1,56 @@
+<div class="background">
+  <div>
+      <div class="centered">
+          <div class="col s12 m7">
+            <div class="card">
+              <div class="card-image">
+                <img class="responsive-img" src="http://ttburger.com.br/wp-content/uploads/2015/05/bannerxodo-1918x798.jpg">
+                <span class="card-title">Lanchonete <br> Cubo Lanches </span>
+              </div>
+              <div class="col s12 m7">
+                <h2 class="header">Personalize seu Lanche</h2>
+                <div class="card horizontal" *ngFor="let lanche of lanches ; let i = index">
+                  <div class="card-image">
+                    <img src="http://s2.glbimg.com/567c5j5D6pXPAQHL_f1dGa35l3w=/645x388/i.glbimg.com/og/ig/infoglobo1/f/original/2015/11/09/tt_burger_hamburguer_de_shitake_tomas_rangel.jpg">
+                  </div>
+                  <div class="row card-stacked">
+                    <div class="card-content">
+                        <div class="titulo-lanche">{{lanche.name}}</div>
+                        <td class="" *ngFor="let ingredient of lanche.ingredients ; let x = index">
+                          <div class="ing">{{ingredient.name}}</div>
+                          <div>
+                             <td class="input_qtd"><input type="number" min="0" class="center-input" value="{{ingredient.qtd}}" (input)="ingredientChange($event, i,x)"></td>
+                          </div>
+                          </td>
+                          <tr>
+                              <div>
+                                  <tr class="" *ngFor="let ingredient of lanche.ingredients ; let x = index">
+                                    <div class="ing-preco">{{ingredient.name}} - {{ingredient.cost}}</div>
+                                  </tr>
+                              </div>
+                          </tr>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action">
+                <div class="row">
+                  <div class="col">
+                      <button class="btn" type="submit" name="action" (click)= "teste(lanches)">
+                          <i class="material-icons right">Pedir</i>
+                        </button>
+                  </div>
+                  <div> Custo total: {{totalCost}} </div>
+
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+  </div>
+<div>

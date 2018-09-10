@@ -1,0 +1,25 @@
+.text_header{
+  text-align: center
+}
+.row{
+  justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.input_qtd{
+  width: 21%;
+  .center-input{
+    text-align: center;
+
+  }
+
+}
+
+.tr,td{
+  padding: 0px;
+  font-size: 16px;
+}
+
+.btn{
+  background: rgba(48, 109, 182, 0.95);
+}

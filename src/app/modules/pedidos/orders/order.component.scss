@@ -1,0 +1,31 @@
+.text_header{
+  text-align: center
+}
+.row{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+}
+.input_qtd{
+  width: 27%;
+  .center-input{
+    text-align: center;
+    border: solid 1px;
+  }
+
+}
+.titulo-lanche{
+  font-weight: bold;
+}
+.ing{
+  text-align: center;
+}
+.ing-preco{
+  text-align: left;
+}
+
+
+.btn{
+  background: rgba(48, 109, 182, 0.95);
+}
