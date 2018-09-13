@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppService } from '../../../app.service';
 import { Router } from '@angular/router';
 import {PedidoService} from '../pedido.service';
+import { NotifierService } from 'angular-notifier';
 
 
 
@@ -11,13 +12,15 @@ selector: 'app-lunch',
   styleUrls: ['./lunch.component.scss']
 })
 export class LunchComponent {
-
+  private notifier: NotifierService;
   title = 'lanchonete-fron';
 
   lanches: any[] = [];
 
 
-constructor(appService: AppService , private _router: Router, public pedidoService: PedidoService) {
+constructor(appService: AppService , private _router: Router, public pedidoService: PedidoService, notifier: NotifierService) {
+  this.notifier = notifier;
+
   appService.listLunchs().subscribe(lunchs => {
 
   const retorno: Object[] = [];
@@ -33,7 +36,7 @@ constructor(appService: AppService , private _router: Router, public pedidoServi
 
   teste( Lanches: any) {
     const lanchesAjusted = [];
-    console.log('entrou' , JSON.stringify(Lanches));
+
     for (const iterator of Lanches) {
       if (iterator.quantidade > 0) {
         console.log('o lanche escolhido' , iterator );
@@ -43,11 +46,16 @@ constructor(appService: AppService , private _router: Router, public pedidoServi
       }
 
       this.pedidoService.lanches = lanchesAjusted;
-      this._router.navigate(['../order']);
     }
 
-    console.log('lanches ajustados: ' , lanchesAjusted);
+    if (lanchesAjusted.length > 0) {
+      this._router.navigate(['../order']);
+    } else {
+      this.notifier.notify('error', 'Inclua pelo menos um lanche');
+    }
 
+
+    //
 
   }
 

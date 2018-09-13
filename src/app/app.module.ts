@@ -9,6 +9,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { PedidosModule } from './modules/pedidos/pedidos.component.module';
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
